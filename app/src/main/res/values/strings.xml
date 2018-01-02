@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BarcodeScanner</string>
+
+    <integer name="viewfinder_border_width">4</integer>
+    <integer name="viewfinder_border_length">60</integer>
+    <string name="alertDialog_title">Barcode Reader Sample</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission. The application will now exit.</string>
+
+</resources>
