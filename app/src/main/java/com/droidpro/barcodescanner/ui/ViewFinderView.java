@@ -175,6 +175,7 @@ public class ViewFinderView extends AppCompatImageView implements IViewFinder {
     }
 
     public void drawViewFinderMask(Canvas canvas) {
+        // draw shading
         int width = canvas.getWidth();
         int height = canvas.getHeight();
         Rect framingRect = getFramingRect();
