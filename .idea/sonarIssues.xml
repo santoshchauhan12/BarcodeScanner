@@ -3,6 +3,11 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/a.dummy">
           <value>
             <set />
@@ -69,6 +74,171 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../barcode-reader/app/src/main/java/com/google/android/gms/samples/vision/barcodereader/BarcodeCaptureActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../barcode-reader/app/src/main/java/com/google/android/gms/samples/vision/barcodereader/ui/camera/CameraSource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../barcode-reader/app/src/main/java/com/google/android/gms/samples/vision/barcodereader/ui/camera/CameraSourcePreview.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../barcode-reader/app/src/main/res/layout/barcode_capture.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/fragments/AppCheckoutAddressEntry.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/fragments/AppCheckoutConfirmationFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/fragments/AppCheckoutFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/fragments/AppCheckoutPromoFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/fragments/AppCheckoutSelectDeliveryFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/fragments/AppCheckoutValidateAddressFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/fragments/SearchFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/global/App.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/global/AppConstants.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/models/ActionBarManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/models/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/views/BubbleEffectsImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/widget/barcodedetector/BarcodeScannerActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/widget/barcodedetector/BarcodeTracker.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/widget/barcodedetector/BoxDetector.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/widget/barcodedetector/DisplayUtils.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/widget/barcodedetector/IViewListener.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/widget/barcodedetector/ViewFinderView.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/widget/camera/CameraSource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/java/com/gamestop/powerup/widget/camera/CameraSourcePreview.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/res/layout-land/activity_barcode_scanner.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/res/layout/activity_barcode_scanner.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/res/layout/toolbar.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/res/layout/toolbar_credit.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/res/layout/toolbar_title.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/res/values/colors.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/santosh/workstation/GS.Mobile.Android/Android_Dev/build.gradle">
           <value>
             <set />
           </value>

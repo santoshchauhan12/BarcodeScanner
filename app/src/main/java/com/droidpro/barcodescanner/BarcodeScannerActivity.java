@@ -73,6 +73,7 @@ public class BarcodeScannerActivity extends AppCompatActivity implements Barcode
     private int mViewFinderOffset = 0;
     private float mAspectTolerance = 0.1f;
     private CheckBox mAutoFocus;
+    private CameraSource.Builder builder;
 
 
     @Override
@@ -130,7 +131,7 @@ public class BarcodeScannerActivity extends AppCompatActivity implements Barcode
         /*
         Creates and starts the camera
         */
-        CameraSource.Builder builder = new CameraSource.Builder(getApplicationContext(), boxDetector).
+         builder = new CameraSource.Builder(getApplicationContext(), boxDetector).
                 setRequestedFps(15.0f).setFacing(CameraSource.CAMERA_FACING_BACK).
                 setRequestedPreviewSize(768, 1600);
 
@@ -143,7 +144,7 @@ public class BarcodeScannerActivity extends AppCompatActivity implements Barcode
         }
 
         mCameraSource = builder
-                .setFlashMode(true ? Camera.Parameters.FLASH_MODE_TORCH : null)
+                .setFlashMode(true ? Camera.Parameters.FLASH_MODE_AUTO : null)
                 .build();
 
     }

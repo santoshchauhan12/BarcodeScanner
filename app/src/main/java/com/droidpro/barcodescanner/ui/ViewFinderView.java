@@ -10,6 +10,7 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import com.droidpro.barcodescanner.R;
 import com.droidpro.barcodescanner.utils.DisplayUtils;
@@ -19,12 +20,12 @@ public class ViewFinderView extends AppCompatImageView implements IViewFinder {
 
     private Rect mFramingRect;
 
-    private static final float PORTRAIT_WIDTH_RATIO = 6f/8;
-    private static final float PORTRAIT_WIDTH_HEIGHT_RATIO = 0.75f;
+    private static final float PORTRAIT_WIDTH_RATIO = 7f/8;
+    private static final float PORTRAIT_WIDTH_HEIGHT_RATIO = 0.99f;
 
     private static final float LANDSCAPE_HEIGHT_RATIO = 5f/8;
     private static final float LANDSCAPE_WIDTH_HEIGHT_RATIO = 1.4f;
-    private static final int MIN_DIMENSION_DIFF = 50;
+    private static final int MIN_DIMENSION_DIFF = 400;
 
     private static final float DEFAULT_SQUARE_DIMENSION_RATIO = 5f / 8;
 
@@ -48,21 +49,25 @@ public class ViewFinderView extends AppCompatImageView implements IViewFinder {
     private float mBordersAlpha;
     private int mViewFinderOffset = 0;
     private Rect mRectBounds;
+    private Context mContext;
     private IViewListener mViewRectListener;
 
     public ViewFinderView(Context context) {
         super(context);
+        mContext  = context;
         init();
     }
 
     public ViewFinderView(Context context, IViewListener viewListener) {
         super(context);
+        mContext  = context;
         mViewRectListener = viewListener;
         init();
     }
 
     public ViewFinderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        mContext  = context;
         init();
     }
 
@@ -177,11 +182,21 @@ public class ViewFinderView extends AppCompatImageView implements IViewFinder {
         int width = canvas.getWidth();
         int height = canvas.getHeight();
         Rect framingRect = getFramingRect();
+        int leftMargin = 100;
+        int rightMargin = 100;
+        int topMargin = 50;
+        int bottomMargin = 50;
 
-        canvas.drawRect(0, 0, width, framingRect.top +50, mFinderMaskPaint);
-        canvas.drawRect(0, framingRect.top +50, framingRect.left - 100, framingRect.bottom -50, mFinderMaskPaint);
-        canvas.drawRect(framingRect.right + 100, framingRect.top +50, width, framingRect.bottom - 50, mFinderMaskPaint);
-        canvas.drawRect(0, framingRect.bottom - 50, width, height, mFinderMaskPaint);
+        if(!isPortraitMode()) {
+            leftMargin = 300;
+            rightMargin = 300;
+            topMargin = 50;
+            bottomMargin = 50;
+        }
+        canvas.drawRect(0, 0, width, framingRect.top +topMargin, mFinderMaskPaint);
+        canvas.drawRect(0, framingRect.top +topMargin, framingRect.left - leftMargin, framingRect.bottom -bottomMargin, mFinderMaskPaint);
+        canvas.drawRect(framingRect.right + rightMargin, framingRect.top +topMargin, width, framingRect.bottom - bottomMargin, mFinderMaskPaint);
+        canvas.drawRect(0, framingRect.bottom - bottomMargin, width, height, mFinderMaskPaint);
         setRecBounds(canvas.getClipBounds());
         mViewRectListener.onViewRectCreated(canvas.getClipBounds());
     }
@@ -191,43 +206,71 @@ public class ViewFinderView extends AppCompatImageView implements IViewFinder {
             mViewRectListener = viewListener;
         }
     }
+
+    private boolean isPortraitMode() {
+        int orientation = mContext.getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            return false;
+        }
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            return true;
+        }
+
+        Log.d(TAG, "isPortraitMode returning false by default");
+        return false;
+    }
+
     public void drawViewFinderBorder(Canvas canvas) {
         Rect framingRect = getFramingRect();
-
+        int leftMargin = 102;
+        int rightMargin = 102;
+        int topMargin = 48;
+        int bottomMargin = 48;
+        if(!isPortraitMode()) {
+            leftMargin = 302;
+            rightMargin = 302;
+            topMargin = 48;
+            bottomMargin = 48;
+        }
         // Top-left corner
         Path path = new Path();
-        path.moveTo(framingRect.left, framingRect.top + mBorderLineLength);
-        path.lineTo(framingRect.left, framingRect.top);
-        path.lineTo(framingRect.left + mBorderLineLength, framingRect.top);
+        path.moveTo(framingRect.left - leftMargin, framingRect.top +topMargin + mBorderLineLength);
+        path.lineTo(framingRect.left - leftMargin, framingRect.top +topMargin);
+        path.lineTo(framingRect.left - leftMargin + mBorderLineLength, framingRect.top + topMargin);
         canvas.drawPath(path, mBorderPaint);
 
         // Top-right corner
-        path.moveTo(framingRect.right, framingRect.top + mBorderLineLength);
-        path.lineTo(framingRect.right, framingRect.top);
-        path.lineTo(framingRect.right - mBorderLineLength, framingRect.top);
+        path.moveTo(framingRect.right + rightMargin, framingRect.top + topMargin + mBorderLineLength);
+        path.lineTo(framingRect.right +rightMargin, framingRect.top+topMargin);
+        path.lineTo(framingRect.right + rightMargin - mBorderLineLength, framingRect.top + topMargin);
         canvas.drawPath(path, mBorderPaint);
 
         // Bottom-right corner
-        path.moveTo(framingRect.right, framingRect.bottom - mBorderLineLength);
-        path.lineTo(framingRect.right, framingRect.bottom);
-        path.lineTo(framingRect.right - mBorderLineLength, framingRect.bottom);
+        path.moveTo(framingRect.right + rightMargin, framingRect.bottom - bottomMargin - mBorderLineLength);
+        path.lineTo(framingRect.right + rightMargin, framingRect.bottom - bottomMargin);
+        path.lineTo(framingRect.right + rightMargin - mBorderLineLength, framingRect.bottom - bottomMargin);
         canvas.drawPath(path, mBorderPaint);
 
         // Bottom-left corner
-        path.moveTo(framingRect.left, framingRect.bottom - mBorderLineLength);
-        path.lineTo(framingRect.left, framingRect.bottom);
-        path.lineTo(framingRect.left + mBorderLineLength, framingRect.bottom);
+        path.moveTo(framingRect.left - leftMargin, framingRect.bottom - bottomMargin - mBorderLineLength);
+        path.lineTo(framingRect.left - leftMargin, framingRect.bottom - bottomMargin);
+        path.lineTo(framingRect.left - leftMargin + mBorderLineLength, framingRect.bottom -bottomMargin );
         canvas.drawPath(path, mBorderPaint);
     }
 
     public void drawLaser(Canvas canvas) {
         Rect framingRect = getFramingRect();
-        
+        int leftMargin = 98;
+        int rightMargin = 98;
+        if(!isPortraitMode()) {
+            leftMargin = 298;
+            rightMargin = 298;
+        }
         // Draw a red "laser scanner" line through the middle to show decoding is active
         mLaserPaint.setAlpha(SCANNER_ALPHA[scannerAlpha]);
         scannerAlpha = (scannerAlpha + 1) % SCANNER_ALPHA.length;
         int middle = framingRect.height() / 2 + framingRect.top;
-        canvas.drawRect(framingRect.left - 98, middle - 1, framingRect.right + 99, middle + 2, mLaserPaint);
+        canvas.drawRect(framingRect.left - leftMargin, middle - 1, framingRect.right + rightMargin, middle + 2, mLaserPaint);
 
         postInvalidateDelayed(ANIMATION_DELAY,
                 framingRect.left - POINT_SIZE,
@@ -282,4 +325,5 @@ public class ViewFinderView extends AppCompatImageView implements IViewFinder {
         mRectBounds = recBounds;
     }
 }
+
 
