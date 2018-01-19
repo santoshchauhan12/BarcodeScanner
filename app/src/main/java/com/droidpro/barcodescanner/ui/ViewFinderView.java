@@ -125,6 +125,7 @@ public class ViewFinderView extends AppCompatImageView implements IViewFinder {
 
     @Override
     public void setBorderAlpha(float alpha) {
+        //coloring border
         int colorAlpha = (int) (255 * alpha);
         mBordersAlpha = alpha;
         mBorderPaint.setAlpha(colorAlpha);
