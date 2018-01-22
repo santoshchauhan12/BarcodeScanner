@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         mButtonScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Launching Barcode
                 Intent intent=new Intent(MainActivity.this,BarcodeScannerActivity.class);
                 startActivity(intent);
             }
