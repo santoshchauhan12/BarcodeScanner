@@ -17,8 +17,8 @@ platform :android do
     gradle(task: 'clean')
      gradle(task: 'assemble', build_type: 'Release',
         properties: {
-            "versionCode" => 20,
-            "versionName" => "2.0",
+            "versionCode" => 25,
+            "versionName" => "2.5",
             "android.injected.signing.store.file" => "app/deploytestkeystore.jks",
             "android.injected.signing.store.password" => "admin123",
             "android.injected.signing.key.alias" => "deploy",
