@@ -1,0 +1,33 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  desc "Run beta build and upload to play store"
+  lane :beta do
+    gradle(task: 'clean')
+     gradle(task: 'assemble', build_type: 'Release',
+        properties: {
+            "versionCode" => 20,
+            "versionName" => "2.0",
+            "android.injected.signing.store.file" => "app/deploytestkeystore.jks",
+            "android.injected.signing.store.password" => "admin123",
+            "android.injected.signing.key.alias" => "deploy",
+            "android.injected.signing.key.password" => "admin123"
+          }
+               )
+
+
+
+      upload_to_play_store(track: 'beta')
+  end
+end
