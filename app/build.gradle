@@ -31,7 +31,7 @@ android {
         /*versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName*/
         versionCode getVersionCode()
-        versionName getVersionName()
+        versionName getMyVersionName()
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
