@@ -30,4 +30,24 @@ platform :android do
 
       upload_to_play_store(track: 'beta')
   end
+
+  desc "upload to hockey app"
+    lane :hockey do
+      gradle(task: 'clean')
+       gradle(task: 'assemble', build_type: 'Release',
+          properties: {
+              "versionCode" => ENV['VERSION_CODE'],
+              "versionName" => ENV['VERSION_NAME'],
+              "android.injected.signing.store.file" => "app/deploytestkeystore.jks",
+              "android.injected.signing.store.password" => "admin123",
+              "android.injected.signing.key.alias" => "deploy",
+              "android.injected.signing.key.password" => "admin123"
+            }
+                 )
+        hockey(
+          api_token: "25d66a65f4b84e099ce9e0ec7924f3b9",
+          apk: "./build/outputs/apk/release/app-release.apk"
+        )
+
+    end
 end

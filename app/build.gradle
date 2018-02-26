@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 
+
 android {
     signingConfigs {
         release {
@@ -22,6 +23,8 @@ android {
         println "VersionName is set to $name"
         return name
     }
+
+
 
     compileSdkVersion 26
     defaultConfig {
