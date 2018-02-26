@@ -32,7 +32,7 @@ platform :android do
   end
 
   desc "upload to hockey app"
-    lane :hockey do
+    lane :hockeyUpload do
       gradle(task: 'clean')
        gradle(task: 'assemble', build_type: 'Release',
           properties: {
