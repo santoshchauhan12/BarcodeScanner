@@ -46,7 +46,7 @@ platform :android do
                  )
         hockey(
           api_token: "25d66a65f4b84e099ce9e0ec7924f3b9",
-          public_identifier: "com.gamestop.powerup",
+          public_identifier: "b70c7b65f1d8464bb2fbfbe1eafcaafb",
           ipa: "app/build/outputs/apk/release/app-release.apk"
         )
 
