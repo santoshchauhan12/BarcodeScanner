@@ -39,8 +39,7 @@ platform :android do
               "versionName" => ENV['VERSION_NAME'],
               "android.injected.signing.store.file" => "app/deploytestkeystore.jks",
               "android.injected.signing.store.password" => "admin123",
-              "android.injected.signing.key.alias" => "deploy",
-              "android.injected.signing.key.password" => "admin123"
+              "android.injected.signing.key.alias" => "deploy"
             }
                  )
         hockey(
