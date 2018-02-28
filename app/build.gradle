@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 
+
 ext {
-    privateAesKey = "%^&*&^*^*E^&^*!#!#&(*&(%%^%^%&(*)(&*&^^&^&^%%^sb4549549zzz#^^&*%%((&&^&&#&^"
-    hashSaltKeyForQA = "6793d153-13fc-4d33-893c-1eba474d9c28"
+    hashSaltKeyForQA = "6793d153-13fc74d9c28"
     hashSaltKeyForProduction = ""
 
 }
-
 android {
     signingConfigs {
         release {
@@ -31,12 +30,18 @@ android {
         return name
     }
 
+    /*def getHashSalt = { ->
+        def name = project.hasProperty('hashSaltKeyForQA') ? hash : "1.0"
+        println "hashSalt is set to $name"
+        return name
+    }*/
+
 
 
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.droidpro.barcodescanner"
-        minSdkVersion 23
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
@@ -45,6 +50,7 @@ android {
         resValue "string", "hash_salt_key_qa", hashSaltKeyForQA
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
 
         if (project.hasProperty("teamcity")) {
             teamcity.each { key, val ->
