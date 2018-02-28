@@ -19,6 +19,7 @@ platform :android do
         properties: {
             "versionCode" => ENV['VERSION_CODE'],
             "versionName" => ENV['VERSION_NAME'],
+            "hashSalt" => ENV['HASH_SALT'],
             "android.injected.signing.store.file" => "app/deploytestkeystore.jks",
             "android.injected.signing.store.password" => "admin123",
             "android.injected.signing.key.alias" => "deploy"
@@ -37,6 +38,7 @@ platform :android do
           properties: {
               "versionCode" => ENV['VERSION_CODE'],
               "versionName" => ENV['VERSION_NAME'],
+              "hashSalt" => ENV['HASH_SALT'],
               "android.injected.signing.store.file" => "app/deploytestkeystore.jks",
               "android.injected.signing.store.password" => "admin123",
               "android.injected.signing.key.alias" => "deploy"

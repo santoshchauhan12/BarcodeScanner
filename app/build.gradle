@@ -1,6 +1,13 @@
 apply plugin: 'com.android.application'
 
 
+ext {
+    privateAesKey = "%^&*&^*^*E^&^*!#!#&(*&(%%^%^%&(*)(&*&^^&^&^%%^sb4549549zzz#^^&*%%((&&^&&#&^"
+    hashSaltKeyForQA = "6793d153-13fc-4d33-893c-1eba474d9c28"
+    hashSaltKeyForProduction = ""
+
+}
+
 android {
     signingConfigs {
         release {
@@ -31,12 +38,31 @@ android {
         applicationId "com.droidpro.barcodescanner"
         minSdkVersion 23
         targetSdkVersion 26
-        /*versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName*/
-        versionCode getVersionCode()
-        versionName getMyVersionName()
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        /*versionCode getVersionCode()
+        versionName getMyVersionName()*/
+        resValue "string", "hash_salt_key_qa", hashSaltKeyForQA
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        if (project.hasProperty("teamcity")) {
+            teamcity.each { key, val ->
+                //println "##tc-property name='${key}' value='${val}'"
+                if ("${key}" == "gs.versionCode") {
+                    versionCode = Integer.parseInt("${val}")
+                }
+                if ("${key}" == "gs.versionName") {
+                    versionName = "${val}"
+                }
+                if ("${key}" == "gs.hashSalt") {
+                    resValue "string", "hash_salt_key_qa", "${val}"
+                    resValue "string", "hash_salt_key_prod", "${val}"
+                }
+            }
+        }
     }
+
     lintOptions {
         abortOnError false
     }
