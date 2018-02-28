@@ -27,6 +27,7 @@ ext {
     buildToolsVersion = "19.0.1"
     versionCode = 31
     versionName = "3.1"
+    hashSalt = ""
 }
 
 task clean(type: Delete) {

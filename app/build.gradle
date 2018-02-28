@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 
 
 
-ext {
+/*ext {
     hashSaltKeyForQA = "6793d153-13fc74d9c28"
     hashSaltKeyForProduction = ""
 
-}
+}*/
 android {
     signingConfigs {
         release {
@@ -30,11 +30,11 @@ android {
         return name
     }
 
-    /*def getHashSalt = { ->
-        def name = project.hasProperty('hashSaltKeyForQA') ? hash : "1.0"
-        println "hashSalt is set to $name"
+    def getHashSalt = { ->
+        def hashsalt = project.hasProperty('hashSalt') ? hashSalt : "w23445"
+        println "hashSalt is set to $hashsalt"
         return name
-    }*/
+    }
 
 
 
@@ -45,9 +45,9 @@ android {
         targetSdkVersion 26
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
-        /*versionCode getVersionCode()
-        versionName getMyVersionName()*/
-        resValue "string", "hash_salt_key_qa", hashSaltKeyForQA
+        versionCode getVersionCode()
+        versionName getMyVersionName()
+        resValue "string", "hash_salt_key_qa", getHashSalt()
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
