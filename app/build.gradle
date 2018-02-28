@@ -51,17 +51,24 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-
+        println "before teamcity variable setting"
         if (project.hasProperty("teamcity")) {
+            println "after teamcity variable setting"
             teamcity.each { key, val ->
                 //println "##tc-property name='${key}' value='${val}'"
                 if ("${key}" == "gs.versionCode") {
+                    println "after teamcity variable version code setting"
+
                     versionCode = Integer.parseInt("${val}")
                 }
                 if ("${key}" == "gs.versionName") {
+                    println "after teamcity variable version name setting"
+
                     versionName = "${val}"
                 }
                 if ("${key}" == "gs.hashSalt") {
+                    println "after teamcity variable hashsalt setting"
+
                     resValue "string", "hash_salt_key_qa", "${val}"
                     resValue "string", "hash_salt_key_prod", "${val}"
                 }
