@@ -16,35 +16,27 @@ android {
             storePassword 'admin123'
         }
     }
-
     def getVersionCode = { ->
 
         def code = project.hasProperty('versionCode') ? versionCode.toInteger() : -1
         println "VersionCode is set to $code"
         return code
     }
-
     def getMyVersionName = { ->
         def name = project.hasProperty('versionName') ? versionName : "1.0"
         println "VersionName is set to $name"
         return name
     }
-
     def getHashSalt = { ->
         def hashsalt = project.hasProperty('hashSalt') ? hashSalt : "w23445"
         println "hashSalt is set to $hashsalt"
         return name
     }
-
-
-
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.droidpro.barcodescanner"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName
         versionCode getVersionCode()
         versionName getMyVersionName()
         resValue "string", "hash_salt_key_qa", getHashSalt()
@@ -75,7 +67,6 @@ android {
             }
         }
     }
-
     lintOptions {
         abortOnError false
     }
@@ -85,11 +76,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
-
+    }
+    flavorDimensions "default"
+    productFlavors {
         beta {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+
+        }
+        prod {
+
+        }
+        preProd {
+
         }
     }
 }

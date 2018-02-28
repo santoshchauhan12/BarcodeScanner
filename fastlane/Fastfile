@@ -15,7 +15,7 @@ platform :android do
   desc "Run beta build and upload to play store"
   lane :beta do
     gradle(task: 'clean')
-     gradle(task: 'assemble', build_type: 'Release',
+     gradle(task: 'assemble', flavor: "preProd", build_type: 'Release',
         properties: {
             "versionCode" => ENV['VERSION_CODE'],
             "versionName" => ENV['VERSION_NAME'],
@@ -34,7 +34,7 @@ platform :android do
   desc "upload to hockey app"
     lane :hockeyUpload do
       gradle(task: 'clean')
-       gradle(task: 'assemble', build_type: 'Release',
+       gradle(task: 'assemble', flavor: "preProd", build_type: 'Release',
           properties: {
               "versionCode" => ENV['VERSION_CODE'],
               "versionName" => ENV['VERSION_NAME'],
