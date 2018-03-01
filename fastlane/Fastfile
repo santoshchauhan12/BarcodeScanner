@@ -49,4 +49,5 @@ desc "Run production build and upload to play store"
 
      upload_to_play_store(track:production)
  end
+ end
 
