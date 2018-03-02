@@ -34,7 +34,7 @@ android {
             keyAlias getKeyAlias()
             keyPassword getkeypass()
             storeFile file('/home/yml/Documents/android-poc/droidpro/BarcodeScanner/app/deploytestkeystore.jks')
-            storePassword 'admin123'
+
         }
     }
 
