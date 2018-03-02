@@ -10,8 +10,8 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         release {
-            keyAlias 'deploy'
-            keyPassword 'admin123'
+            keyAlias 'depfffloy'
+            keyPassword 'admidddn123'
             storeFile file('/home/yml/Documents/android-poc/droidpro/BarcodeScanner/app/deploytestkeystore.jks')
             storePassword 'admin123'
         }
