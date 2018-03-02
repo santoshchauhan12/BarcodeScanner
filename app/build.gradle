@@ -8,14 +8,37 @@ apply plugin: 'com.android.application'
 
 }*/
 android {
+
+    def getStoreFile = { ->
+
+        def code = project.hasProperty('storeFile') ? storeFile : "sdfdsf"
+        println "storeFile is set to $code"
+        return code
+    }
+
+    def getkeypass = { ->
+
+        def code = project.hasProperty('keyPassword') ? keyPassword : "dsafsd"
+        println "keyPassword is set to $code"
+        return code
+    }
+
+    def getKeyAlias = { ->
+
+        def code = project.hasProperty('keyAlias') ? keyAlias : "dsfasd"
+        println "keyAlias is set to $code"
+        return code
+    }
     signingConfigs {
         release {
-            keyAlias 'depfffloy'
-            keyPassword 'admidddn123'
+            keyAlias getKeyAlias()
+            keyPassword getkeypass()
             storeFile file('/home/yml/Documents/android-poc/droidpro/BarcodeScanner/app/deploytestkeystore.jks')
             storePassword 'admin123'
         }
     }
+
+
     def getVersionCode = { ->
 
         def code = project.hasProperty('versionCode') ? versionCode.toInteger() : -1
