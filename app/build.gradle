@@ -37,8 +37,8 @@ android {
         applicationId "com.droidpro.barcodescanner"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode getVersionCode()
-        versionName getMyVersionName()
+        versionCode 32
+        versionName "3.3"
         resValue "string", "hash_salt_key_qa", getHashSalt()
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
