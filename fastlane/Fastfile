@@ -21,7 +21,7 @@ platform :android do
           "android.injected.signing.store.file" => "/home/yml/Documents/android-poc/droidpro/BarcodeScanner/app/deploytestkeystore.jks",
                            "android.injected.signing.store.password" => "admin123",
                            "android.injected.signing.key.alias" => "deploy"
-                           "android.injected.signing.key.password" => "admin123",
+                           "android.injected.signing.key.password" => "admin123"
          }
               )
  end
