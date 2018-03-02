@@ -10,7 +10,21 @@
 # update_fastlane
 
 default_platform(:android)
-
+platform :android do
+ desc "Run beta build and upload to play store"
+ lane :gbuild do
+   gradle(task: 'clean')
+    gradle(task: 'assemble', flavor: "prod", build_type: 'Release',
+       properties: {
+           "versionCode" => ENV['VERSION_CODE'],
+           "versionName" => ENV['VERSION_NAME'],
+           "hashSalt" => ENV['HASH_SALT'],
+           "storeFile" => "/home/yml/Documents/android-poc/droidpro/BarcodeScanner/app/deploytestkeystore.jks",
+                                             "storePassword" => "admin123",
+                                             "keyAlias" => "deploy"
+         }
+              )
+ end
 platform :android do
  desc "Run beta build and upload to play store"
  lane :preProd do
