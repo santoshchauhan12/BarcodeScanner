@@ -19,7 +19,7 @@ platform :android do
        properties: {
 
            "storeFile" => "/home/yml/Documents/android-poc/droidpro/BarcodeScanner/app/deploytestkeystore.jks",
-                            "keyPassword" => "admin123",
+                            "keyPassword" => "admin12389",
                             "keyAlias" => "deploy"
          }
               )
