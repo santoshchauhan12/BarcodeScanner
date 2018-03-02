@@ -59,15 +59,16 @@ desc "Run production build and upload to play store"
                  "versionName" => ENV['VERSION_NAME'],
                  "hashSalt" => ENV['HASH_SALT'],
                  “applicationId” => “com.droidpro.barcodescanner”,
-                 "android.injected.signing.store.file" => ENV['KEYSTORE_PATH'],
-                 "android.injected.signing.store.password" => ENV['KEYPASS'],
-                 "android.injected.signing.key.alias" => ENV['KEYALIAS']
+                 "android.injected.signing.store.file" => "/home/yml/Documents/android-poc/droidpro/BarcodeScanner/app/deploytestkeystore.jks",
+                                  "android.injected.signing.store.password" => "admin123",
+                                  "android.injected.signing.key.alias" => "deploy"
              }
          )
          hockey(
              api_token: "25d66a65f4b84e099ce9e0ec7924f3b9",
              public_identifier: "b70c7b65f1d8464bb2fbfbe1eafcaafb",
              ipa: lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH],
+             notify: ENV["NOTIFY_TESTERS"], notes: ENV["NOTES"]
          )
      end
  end

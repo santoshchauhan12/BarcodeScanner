@@ -10,8 +10,8 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         release {
-            keyAlias 'deploy'
-            keyPassword 'admin123'
+            keyAlias 'deplddoy'
+            keyPassword 'admi44n123'
             storeFile file('/home/yml/Documents/android-poc/droidpro/BarcodeScanner/app/deploytestkeystore.jks')
             storePassword 'admin123'
         }
@@ -74,9 +74,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-/*
             signingConfig signingConfigs.release
-*/
         }
     }
     flavorDimensions "default"
