@@ -49,5 +49,26 @@ desc "Run production build and upload to play store"
 
      upload_to_play_store(track:production)
  end
+
+ desc "Run beta build upload to hockey app"
+     lane :hockeyUpload do
+         gradle(task: 'clean')
+         gradle(task: 'assemble', flavor: "beta", build_type: 'Release',
+             properties: {
+                 "versionCode" => ENV['VERSION_CODE'],
+                 "versionName" => ENV['VERSION_NAME'],
+                 "hashSalt" => ENV['HASH_SALT'],
+                 “applicationId” => “com.droidpro.barcodescanner”,
+                 "android.injected.signing.store.file" => ENV['KEYSTORE_PATH'],
+                 "android.injected.signing.store.password" => ENV['KEYPASS'],
+                 "android.injected.signing.key.alias" => ENV['KEYALIAS']
+             }
+         )
+         hockey(
+             api_token: "25d66a65f4b84e099ce9e0ec7924f3b9",
+             public_identifier: "b70c7b65f1d8464bb2fbfbe1eafcaafb",
+             ipa: lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH],
+         )
+     end
  end
 
