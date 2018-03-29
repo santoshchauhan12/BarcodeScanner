@@ -16,7 +16,7 @@ public class BarcodeTracker extends Tracker<Barcode> {
 
     public BarcodeTracker(Context context) {
         this.mContext = context;
-
+/////check for hockey build
         if (context instanceof BarcodeUpdateListner) {
             this.barcodeUpdateListner = (BarcodeUpdateListner) context;
         } else {
